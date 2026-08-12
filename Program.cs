@@ -6,10 +6,40 @@ Console.WriteLine($"Bienvenido/a, {nombre}. Caja abierta.");
 
 Console.WriteLine();
 
-Console.Write("Escribrí el producto: ");
-string producto = Console.ReadLine();
-Console.Write("Precio del producto: ");
-decimal precio = decimal.Parse(Console.ReadLine());
-Console.WriteLine($"Se cargó el producto {producto} al precio {precio}.");
+decimal sumaPrecios = 0m;
+int cantidadProductos = 0;
+string opcion;
+
+do
+{
+    Console.WriteLine("¿Que desea hacer?:");
+    Console.WriteLine("1- Cargar un producto ");
+    Console.WriteLine("2- Cerrar la venta");
+    opcion = Console.ReadLine();
+
+    switch (opcion)
+    {
+        case "1":
+            Console.Write("Nombre del producto: ");
+            string producto = Console.ReadLine();
+            Console.Write("Precio del producto: ");
+            decimal precio = decimal.Parse(Console.ReadLine());
+            sumaPrecios += precio;
+            cantidadProductos++;
+            Console.WriteLine();
+            break;
+        case "2":
+            Console.WriteLine("Cerrando la caja...");
+            Console.WriteLine();
+            break;
+        default:
+            Console.WriteLine("Opción invalida. Intente nuevamente.");
+            Console.WriteLine();
+            break;
+    }
+} while (opcion != "2");
+
+Console.WriteLine($"Productos cargados: {cantidadProductos}");
+Console.WriteLine($"Total de precios: {sumaPrecios}");
 
 Console.ReadLine();
