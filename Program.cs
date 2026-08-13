@@ -39,7 +39,28 @@ do
     }
 } while (opcion != "2");
 
+const decimal descuentoMayor = 0.10m;
+const decimal descuentoMenor = 0.05m;
+
+decimal descuento = 0m;
+
+if (sumaPrecios > 50000)
+{
+    descuento = sumaPrecios * descuentoMayor;
+}
+else if (sumaPrecios > 20000)
+{
+    descuento = sumaPrecios * descuentoMenor;
+}
+else
+{
+    descuento = 0m;
+}
+
+decimal precioFinal = sumaPrecios - descuento;
+
 Console.WriteLine($"Productos cargados: {cantidadProductos}");
-Console.WriteLine($"Total de precios: {sumaPrecios}");
+Console.WriteLine($"Descuento: {descuento}");
+Console.WriteLine($"Precio total: {precioFinal}");
 
 Console.ReadLine();
