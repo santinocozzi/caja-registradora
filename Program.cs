@@ -59,8 +59,52 @@ else
 
 decimal precioFinal = sumaPrecios - descuento;
 
+string medioPago;
+decimal descuentoEfectivo = 0m;
+decimal recargoCredito = 0m;
+
+const decimal DescuentoEfectivo = 0.10m;
+const decimal RecargoCredito = 0.15m;
+
+do
+{
+   Console.WriteLine("Medio de pago:"); 
+   Console.WriteLine("1 - Efectivo");
+   Console.WriteLine("2 - Débito");
+   Console.WriteLine("3 - Credito");
+   medioPago = Console.ReadLine();
+   
+   switch (medioPago)
+   {
+     case "1":
+         descuentoEfectivo = precioFinal * DescuentoEfectivo;
+         Console.WriteLine($"Descuento efectivo aplicado ({descuentoEfectivo}).");
+         Console.WriteLine();
+         break;
+     case "2":
+         Console.WriteLine("Pago con debito. Sin ajustes");
+         Console.WriteLine();
+         break;
+         
+     case "3":
+         recargoCredito = precioFinal * RecargoCredito;
+         Console.WriteLine($"Recargo de credito aplicado ({recargoCredito}).");
+         Console.WriteLine();
+         break;
+         
+     default:
+         Console.WriteLine("Medio de pago invalido. Intente nuevamente");
+         Console.WriteLine();
+         break;
+   }
+} while (medioPago != "1" && medioPago != "2" && medioPago != "3");
+
+precioFinal -= descuentoEfectivo;
+precioFinal += recargoCredito;
+
 Console.WriteLine($"Productos cargados: {cantidadProductos}");
 Console.WriteLine($"Descuento: {descuento}");
 Console.WriteLine($"Precio total: {precioFinal}");
 
 Console.ReadLine();
+
