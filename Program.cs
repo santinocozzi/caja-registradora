@@ -102,9 +102,33 @@ do
 precioFinal -= descuentoEfectivo;
 precioFinal += recargoCredito;
 
+for (int i = 0; i < 30; i++)
+{
+    Console.Write("-");
+}
+Console.WriteLine();
+Console.WriteLine($"{NombreKiosco}");
+for (int i = 0; i < 30; i++)
+{
+    Console.Write("-");
+}
+Console.WriteLine();
+Console.WriteLine($"Cajero: {nombre}");
 Console.WriteLine($"Productos cargados: {cantidadProductos}");
-Console.WriteLine($"Descuento: {descuento}");
+Console.WriteLine($"Subtotal: {sumaPrecios}");
+Console.WriteLine($"Descuento: {descuento + descuentoEfectivo}");
+Console.WriteLine($"Recargo: {recargoCredito}");
+
+for (int i = 0; i < 30; i++)
+{
+    Console.Write("-");
+}
+Console.WriteLine();
 Console.WriteLine($"Precio total: {precioFinal}");
+for (int i = 0; i < 30; i++)
+{
+    Console.Write("-");
+}
 
 Console.ReadLine();
 
